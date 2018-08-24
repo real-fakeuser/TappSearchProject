@@ -1,80 +1,60 @@
 {
-  "name": "esnext",
-  "description": "Update your project to the latest ECMAScript syntax.",
-  "main": "dist/esnext.js",
-  "jsnext:main": "dist/esnext.mjs",
-  "types": "index.d.ts",
-  "bin": {
-    "esnext": "./bin/index.js"
-  },
+  "name": "chayns-template-esnext",
+  "version": "1.0.1",
+  "description": "This template will help you getting started with building Tapps for your chayns®-Website with React, ESNext and Redux.",
+  "main": "index.js",
   "scripts": {
-    "lint": "eslint rollup.config.js src test/test.js test/support",
-    "pretest": "yarn lint",
-    "test": "mocha",
-    "prebuild": "yarn lint && rm -rf dist",
-    "build": "rollup -c",
-    "prepublish": "yarn build",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "start": "webpack-dev-server --config ./webpack/dev.babel.js --https",
+    "start:http": "webpack-dev-server --config ./webpack/dev.babel.js",
+    "clean": "rimraf build",
+    "build": "npm run clean && webpack -p --config ./webpack/prod.babel.js",
+    "build:staging": "npm run clean && webpack -p --config ./webpack/staging.babel.js",
+    "eslint": "eslint ./src ./webpack"
   },
-  "keywords": [
-    "es6",
-    "es7",
-    "ast"
-  ],
-  "files": [
-    "dist",
-    "src",
-    "bin",
-    "index.d.ts"
-  ],
-  "engines": {
-    "node": ">=4.0.0"
+  "author": "Tobit.Software",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^8.6.3",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.5",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-env": "^1.7.0",
+    "css-loader": "^0.28.11",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.0",
+    "postcss-flexbugs-fixes": "^3.3.1",
+    "postcss-loader": "^2.1.5",
+    "rimraf": "^2.6.2",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.9.1",
+    "webpack-cli": "^2.1.4",
+    "webpack-dev-server": "^3.1.4",
+    "webpack-merge": "^4.1.2"
   },
-  "author": "Brian Donovan",
-  "license": "MIT",
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "html-to-element": "^1.0.0"
+  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/esnext/esnext.git"
+    "url": "git+https://github.com/TobitSoftware/chayns-template-esnext.git"
   },
-  "bugs": "https://github.com/esnext/esnext/issues",
-  "dependencies": {
-    "@babel/traverse": "^7.0.0-beta.42",
-    "@babel/types": "^7.0.0-beta.42",
-    "@types/babel-traverse": "^6.7.17",
-    "babylon": "^7.0.0-beta.42",
-    "magic-string": "^0.22.2",
-    "mkdirp": "^0.5.1",
-    "shebang-regex": "^2.0.0",
-    "strip-indent": "^2.0.0"
+  "keywords": [
+    "chayns",
+    "exnext",
+    "template"
+  ],
+  "bugs": {
+    "url": "https://github.com/TobitSoftware/chayns-template-esnext/issues"
   },
-  "devDependencies": {
-    "@types/mz": "^0.0.32",
-    "@types/node": "^9.4.6",
-    "@types/ora": "^1.3.2",
-    "babel": "^6.5.2",
-    "babel-eslint": "^8.2.2",
-    "babel-plugin-external-helpers": "^6.18.0",
-    "babel-plugin-syntax-class-properties": "^6.13.0",
-    "babel-plugin-syntax-flow": "^6.18.0",
-    "babel-plugin-transform-class-properties": "^6.19.0",
-    "babel-plugin-transform-flow-strip-types": "^6.21.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.18.0",
-    "babelrc-rollup": "^3.0.0",
-    "browserify": "^16.1.0",
-    "eslint": "^4.18.1",
-    "eslint-plugin-flow-vars": "^0.5.0",
-    "mocha": "^4.0.1",
-    "mz": "^2.7.0",
-    "ora": "^2.0.0",
-    "rollup": "^0.56.3",
-    "rollup-plugin-babel": "^3.0.3",
-    "rollup-plugin-npm": "^2.0.0",
-    "source-map-support": "^0.4.8",
-    "ts-node": "^5.0.0",
-    "typescript": "^2.7.2"
-  },
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/"
-  }
+  "homepage": "https://github.com/TobitSoftware/chayns-template-esnext#readme"
 }

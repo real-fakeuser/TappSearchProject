@@ -1,5 +1,0 @@
-(function(
-  b
-) {
-  return c;
-});
