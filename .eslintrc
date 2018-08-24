@@ -1,0 +1,20 @@
+{
+  "parser": "babel-eslint",
+  "extends": "eslint:recommended",
+  "env": {
+    "node": true,
+    "mocha": true,
+    "es6": true
+  },
+  "rules": {
+    "strict": 0,
+    "no-console": 1,
+    "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
+    "no-use-before-define": [2, "nofunc"],
+    "flow-vars/define-flow-type": 1,
+    "flow-vars/use-flow-type": 1
+  },
+  "plugins": [
+    "flow-vars"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "modules.commonjs": {
+    "imports": [],
+    "exports": [],
+    "directives": [
+      {
+        "type": "Directive",
+        "value": {
+          "type": "DirectiveLiteral",
+          "value": "use strict"
+        }
+      }
+    ]
+  }
+}
