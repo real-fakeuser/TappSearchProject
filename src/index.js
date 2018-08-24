@@ -1,4 +1,4 @@
-
+import './components/siteconstructor/insert';
 
     let listLength = 30;
     let listentries = 0;
@@ -25,18 +25,19 @@
 
 const init = async () => {
     await chayns.ready;
-    document.querySelector('#SiteSearch').onkeyup = _keyUpSearch;
+    console.log("hello world!");
+
+    /*document.querySelector('#SiteSearch').onkeyup = _keyUpSearch;
     document.querySelector('#showMore').addEventListener("click", _enlargeList);
     document.querySelector('#sendForm').addEventListener("click", _processForm);
 
-    _updateData("tobit");       //Default-Suche um Site mit Inhalt zu füllen
-
+    _updateData("tobit");       //Default-Suche um Site mit Inhalt zu füllen        */
   
 
 };
 
 init();
-
+/*
 function  _processForm() {
     var $name       =   document.querySelector('#frmName').value;
     var $address    =   document.querySelector('#frmAddress').value;
@@ -134,7 +135,7 @@ function _updateData(searchString, enlarge) {   //searchString enthält Suchstri
         }/*else{
             chayns.hideWaitCursor();
             _syntaxAlert('Fehler bei der SVGFESpecularLightingElement.', 'Es konnte kein Ergebniss ermittelt werden. Versuche es doch mit einem anderen Suchbegriff oder lade die Seite neu wenn dieser Fehler erneut auftritt.');
-        }*/
+        }*//*
     }).catch(function(data){
     });
 }
@@ -201,4 +202,4 @@ function _showMoreexec() {
     }else{
         return true;
     }
-}
+}*/
