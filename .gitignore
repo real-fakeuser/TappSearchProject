@@ -1,0 +1,5 @@
+build
+dist
+_actual
+node_modules
+*.log

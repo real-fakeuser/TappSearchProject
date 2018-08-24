@@ -1,0 +1,9 @@
+{
+  "presets": [["env", { "targets": { "node": "4" } }]],
+  "plugins": [
+    "syntax-flow",
+    "transform-flow-strip-types",
+    "syntax-class-properties",
+    "transform-class-properties"
+  ]
+}
