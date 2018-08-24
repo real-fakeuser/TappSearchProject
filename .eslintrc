@@ -1,20 +1,30 @@
 {
-  "parser": "babel-eslint",
-  "extends": "eslint:recommended",
   "env": {
-    "node": true,
-    "mocha": true,
+    "browser": true,
+    "jquery": false,
     "es6": true
   },
-  "rules": {
-    "strict": 0,
-    "no-console": 1,
-    "quotes": [2, "single", { "avoidEscape": true, "allowTemplateLiterals": true }],
-    "no-use-before-define": [2, "nofunc"],
-    "flow-vars/define-flow-type": 1,
-    "flow-vars/use-flow-type": 1
+  "globals": {
+    "chayns": true,
+    "__DEV__": true,
+    "__STAGING__": true,
+    "__PROD__": true
   },
-  "plugins": [
-    "flow-vars"
-  ]
+  "parser": "babel-eslint",
+  "rules": {
+    "max-len": "off",
+    "linebreak-style": "off",
+    "indent": "off",
+    "strict": 0,
+    "comma-dangle": "off",
+    "no-use-before-define": "off",
+    "import/no-extraneous-dependencies": "off",
+    "react/jsx-tag-spacing": "off",
+    "react/jsx-indent": "off",
+    "react/jsx-indent-props": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "react/no-danger": "off",
+    "jsx-a11y/no-noninteractive-element-interactions": "off"
+  },
+  "extends": "airbnb-base"
 }
