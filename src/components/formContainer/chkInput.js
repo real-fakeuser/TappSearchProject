@@ -2,13 +2,18 @@ export default class checkInput {
     constructor() {}
 
     containsData = (data) => {
-        
-        return data;
+        if (data !== "") {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    eMailValid = (data) => {
+    eMailValid = (mail) => {
 
 
 
     }
+
+
 }

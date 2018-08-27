@@ -5,14 +5,26 @@ export default class frmLogic {
 
     processUserInput = () => {
         //Hier wird der Inhalt des Formulars geholt, geprüft und zum versenden übergeben.
-    console.log("Daten absenden Button gedrückt.");
         let objgetFrm = new getUserInput;           //Gibt den Inhalt des Formulars zurück.
         let data = objgetFrm.get();
-        console.log(data);
+        //console.log(data);
 
         let objchkInput = new checkInput;
         if (data != null) {
-            console.log(objchkInput.containsData(data));
+            let bvalid = true;
+            data.forEach(eachvalue => {
+                console.log(data[eachvalue]);
+                if(!objchkInput.containsData(data[eachvalue])) {
+                    bvalid = false;
+                }
+            });
+            console.log(bvalid);
+            //console.log(objchkInput.containsData(data))   ;
+            if (objchkInput.containsData(data) != false) {
+                //console .log("Daten richtig!");
+            } else {
+                //console.log("Fehler bei der Datenverarbeitung");
+            }
 
 
         }
