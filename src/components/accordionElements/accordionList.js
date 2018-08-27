@@ -20,7 +20,6 @@ export default class accordionListModule {
             </div>
         </div>
                     `);
-        
         return accordionForm;
     }
 }
