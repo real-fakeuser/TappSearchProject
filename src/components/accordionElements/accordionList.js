@@ -1,19 +1,14 @@
 import htmlToElement from 'html-to-element'
 
-export default class siteList {
+export default class accordionListModule {
     constructor() {}
 
-    accList = () =>{
+    searchAccordion = () => {
 
         let accordionForm = htmlToElement(`
         <div class="accordion accordion--fixed accordion--open">
             <div class="accordion__head no-arrow">
-                <h1>Tapp finder</h1>
-                <div class="flex-container">
-                    <div class="Suche Suche--accordion searchbar">
-                        <input id="SiteSearch" class="input searchIn" type="text" placeholder="Suche" required>
-                        <i class="fa fa-search searchIcon" aria-hidden="true" id="faSearchIcon"></i>
-                    </div>
+                <div id="searchbar">
                 </div>
             </div>
             <div class="accordion__body">

@@ -1,11 +1,11 @@
 import './components/siteconstructor/insert';
-import './utils/addEventListener';
- 
-
+//import './components/searchbar/searchbar';
+import './components/accordionElements/createModule';
+//import './utils/addEventListener';
+import './components/searchbar/searchbar';
 
 const init = async () => {
     await chayns.ready;
-    console.log("hello world!");
 
   
 
