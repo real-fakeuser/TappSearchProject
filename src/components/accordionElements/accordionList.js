@@ -25,6 +25,7 @@ export default class siteList {
             </div>
         </div>
                     `);
+        
         return accordionForm;
     }
 }
