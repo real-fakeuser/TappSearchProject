@@ -1,4 +1,4 @@
-export default class getUserInput {
+export default class frmAccess {
     constructor() {}
 
     get = () => {
@@ -10,5 +10,14 @@ export default class getUserInput {
         data['comment']     =   document.querySelector('#frmComment').value;
         
         return data;
+    }
+
+    set = () => {
+        document.querySelector('#frmName').value        =   "";
+        document.querySelector('#frmAddress').value     =   "";
+        document.querySelector('#frmMailAddr').value    =   "";
+        document.querySelector('#frmComment').value     =   "";
+
+        return;
     }
 }
