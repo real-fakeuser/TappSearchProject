@@ -3,7 +3,7 @@ import htmlToElement from 'html-to-element'
 export default class searchBar {
     constructor() {}
 
-    searchBarBox = () => {
+    searchBarBox = (action) => {
 
         let searchBar = htmlToElement(`
                                     <div>
@@ -16,7 +16,9 @@ export default class searchBar {
                                         </div>
                                     </div>
                     `);
-        
+        if (action) {
+            searchBar.onkeyup = action;
+        }
         return searchBar;
     }
 }

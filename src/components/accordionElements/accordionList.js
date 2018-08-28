@@ -3,7 +3,7 @@ import htmlToElement from 'html-to-element'
 export default class accordionListModule {
     constructor() {}
 
-    searchAccordion = () => {
+    searchAccordion = (action) => {
 
         let accordionForm = htmlToElement(`
         <div class="accordion accordion--fixed accordion--open">
@@ -14,9 +14,8 @@ export default class accordionListModule {
             <div class="accordion__body">
                 <div id="siteList">
                 </div>
-                <div class="flex-container ShowMoreLink" id="showMore">
-                        <a href="#" >Mehr anzeigen</a>
-                    </div>
+                <div id="showMore">
+                </div>
             </div>
         </div>
                     `);
