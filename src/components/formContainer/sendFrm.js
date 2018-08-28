@@ -1,9 +1,9 @@
-import frmAccess from './frmAccess';
+import frmAccess from './getUserInput';
 import checkInput from './chkInput';
 export default class frmLogic {
     constructor() {}
 
-    getFormData = () => {
+    _getFormData = () => {
         //Hier wird der Inhalt des Formulars geholt, geprüft und zum versenden übergeben.
         let objgetFrm = new frmAccess;           //Gibt den Inhalt des Formulars zurück.
         let data = objgetFrm.get();
@@ -19,28 +19,28 @@ export default class frmLogic {
 
             if (bvalid) {                                           //Bei Input email prüfen
                 if (objchkInput.eMailValid(data["eMailAddr"])) {
-                    if (this.send(data)) {
+                    if (this._send(data)) {
                         return data;
                     } else {
-                        this.popupMessage("Fehler", "Senden fehlgeschlagen. Versuche es später bitte erneut.");
+                        this._popupMessage("Fehler", "Senden fehlgeschlagen. Versuche es später bitte erneut.");
                     }
                 } else {
-                    this.popupMessage("Fehler", "Gebe bitte Deine e-Mail Adresse ein.");
+                    this._popupMessage("Fehler", "Gebe bitte Deine e-Mail Adresse ein.");
                 }
             } else {
-                this.popupMessage("Fehler", "Fülle bitte alle Felder aus.");
+                this._popupMessage("Fehler", "Fülle bitte alle Felder aus.");
             }
         }
     }
 
     processUserInput = () => {
-        if (this.getFormData() != null) {
-            this.send(this.getFormData());
+        let userInput = this._getFormData();
+        if (userInput != null) {
+            this._send(userInput());
         }
     }
 
-
-    send = (data) => {
+    _send = (data) => {
         //Hier wird das Formular versendet
         var messageToSend = ('Anfrage Seite indizieren: \nName: ' + data["name"] + '\nAdresse: ' + data["address"] + '\neMail Adresse:' + data["eMailAddr"] + '\nKommentar: ' + data["comment"]);
                 chayns.intercom.sendMessageToPage({
@@ -55,12 +55,10 @@ export default class frmLogic {
                 return true;
     }
 
-    popupMessage = (heading, content) => {
+    _popupMessage = (heading, content) => {
         chayns.dialog.alert(heading, content)
             .then(function (data) { 
-            console.log(data) 
         });
-        return;
     }
 
 
