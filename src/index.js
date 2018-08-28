@@ -1,33 +1,18 @@
 import './components/siteconstructor/insert';
+//import './components/searchbar/searchbar';
+import './components/accordionElements/createModule';
+//import './utils/addEventListener';
+import './components/searchbar/searchbar';
+import searchEngine from './components/listContainer/searchengine';
 
-    let listLength = 30;
-    let listentries = 0;
-    let lastSearch = "Tobit";
-    let lastInputTime = 0;
-    let newListLength = 20;
-    let listTemplate = `
-                        <div class="ListItem ListItem--clickable" id="$siteId">
-                            <div class="listLinks" id="$siteId">
-                                <div class="ListItem__head">
-                                    <div style="background:url(https://sub60.tobit.com/l/$locationId)" class="ListItem__Image"> 
-                                    </div>  
-                                    <div class="ListItem__Title"> 
-                                        <p class="ListItem__Title--headline">$Name</p> 
-                                        <p class="ListItem__Title--description">$siteId</p>   
-                                    </div> 
-                                </div>  
-                            </div>
-                        </div>`;
-
-
-
-
+//import searchEngine from './components/searchbar/searchbar';
 
 const init = async () => {
     await chayns.ready;
-    console.log("hello world!");
-
-  
+  console.log("debug");
+    document.querySelector('#SiteSearch').value = 'Tobit';
+    let objtest = new searchEngine();
+    objtest.search();
 
 };
 
