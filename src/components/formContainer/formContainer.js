@@ -45,12 +45,13 @@ export default class Formular {
     }
 
 _get = () => {
-        let data = ['name' , 'address' , 'eMailAddr' ,  'comment'];
-        data['name']        =   this.$baseElement.querySelector('#frmName').value;
-        data['address']     =   this.$baseElement.querySelector('#frmAddress').value;
-        data['eMailAddr']   =   this.$baseElement.querySelector('#frmMailAddr').value;
-        data['comment']     =   this.$baseElement.querySelector('#frmComment').value;
-        return data;
+        let myData = {
+            name: (this.$baseElement.querySelector('#frmName').value),
+            address:this.$baseElement.querySelector('#frmAddress').value,
+            eMailAddr:this.$baseElement.querySelector('#frmMailAddr').value,
+            comment:this.$baseElement.querySelector('#frmComment').value
+        }
+        return myData;
 }
 
 _setFrm = () => {
@@ -87,10 +88,10 @@ eMailValid = (mail) => {
                 if (this.eMailValid(data["eMailAddr"])) {
                    return data;
                 } else {
-                    this._popupMessage("Fehler", "Gebe bitte Deine e-Mail Adresse ein.");
+                    chayns.dialog.alert("Fehler", "Gebe bitte Deine e-Mail Adresse ein.");
                 }
             } else {
-                this._popupMessage("Fehler", "Fülle bitte alle Felder aus.");
+                chayns.dialog.alert("Fehler", "Fülle bitte alle Felder aus.");
             }
         }
     }
@@ -115,15 +116,4 @@ eMailValid = (mail) => {
                 });
                 return true;
     }
-
-    _popupMessage = (heading, content) => {
-        chayns.dialog.alert(heading, content)
-            .then(function (data) { 
-        });
-    }
-
-
-
-
-
 }

@@ -16,8 +16,8 @@ const init = async () => {
 //###############
 
 //############### create wrapper
-      /*let listBaseElement = document.querySelector('#resultList');
-      let listContainer = new listContainer(listBaseElement);*/
+      let listBaseElement = document.querySelector('#resultList');
+      let listContainer = new listContainer(listBaseElement);
 
 
      /* let objListWrapper = new accordionList();
