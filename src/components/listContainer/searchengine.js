@@ -1,39 +1,17 @@
 import htmlToElement from 'html-to-element';
+import resListForm from './resListForm';
 
 export default class searchEngine {
     constructor() {
+        this.objResList = new resListForm();
         this.lastInputTime = 0;
-
         this.listLength = 30;
         this.listentries = 0;
         this.lastSearch = "Tobit";
         this.lastInputTime = 0;
         this.newListLength = 20;
         this.resultList = document.querySelector('#siteList');
-
     }
-
-    _getElement(siteId,name,locationId) {
-        const element = htmlToElement(`
-        <div class="ListItem ListItem--clickable listLinks" id="${siteId}">
-                <div class="ListItem__head">
-                    <div style="background:url(https://sub60.tobit.com/l/${locationId})" class="ListItem__Image"> 
-                    </div>  
-                    <div class="ListItem__Title"> 
-                        <p class="ListItem__Title--headline">${name}</p> 
-                        <p class="ListItem__Title--description">${siteId}</p>   
-                    </div> 
-                </div>  
-        </div>       `
-        );
-
-        element.addEventListener('click', () => {chayns.openUrlInBrowser('https://chayns.net/'+siteId); });
-        return element;
-
-    }
-
-
-
 
     keyUpSearch = () => {                        //Hier wird der Zeitpunkt des letzten Keyup-Events gespeichert und die Ausführung geplant
         var millisNow = new Date().getTime();
@@ -52,8 +30,6 @@ export default class searchEngine {
     }
 
     enlargeList = () => {
-        console.log("Mehr anzeigen Button gedrückt.");
-
         if (this._showMoreexec) {
             this.listLength += this.newListLength;
             this._updateSearchData(null, true);
@@ -78,7 +54,6 @@ export default class searchEngine {
         let result = this._requery(searchString, enlarge);
         result.then((data) => {
             if (data != null) {
-                console.log(data);
                 this._editList(data, enlarge);            //daten enthält Array mit Daten, enlarge -> HTML-Liste erweitern
             } else {
                 chayns.hideWaitCursor();
@@ -104,7 +79,6 @@ export default class searchEngine {
 
         return new Promise((resolve) => {
             chayns.findSite(searchString, startIndex, lengthOfRequest).then((data) => {
-                console.log(searchString + startIndex + lengthOfRequest);
                 resolve(data);
             });
         });
@@ -119,7 +93,7 @@ export default class searchEngine {
         
         if (data != null) {
             data.Value.forEach(resultItem => {
-                this.resultList.appendChild(this._getElement(resultItem.siteId,resultItem.appstoreName,resultItem.locationId));
+                this.resultList.appendChild(this.objResList.listElement(resultItem.siteId,resultItem.appstoreName,resultItem.locationId));
                 this.listentries++; 
             });
         }
