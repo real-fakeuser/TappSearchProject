@@ -45,23 +45,20 @@ export default class Formular {
     }
 
 _get = () => {
-        let data = ['name' , 'address' , 'eMailAddr' ,  'comment'];
-        data['name']        =   this.$baseElement.querySelector('#frmName').value;
-        data['address']     =   this.$baseElement.querySelector('#frmAddress').value;
-        data['eMailAddr']   =   this.$baseElement.querySelector('#frmMailAddr').value;
-        data['comment']     =   this.$baseElement.querySelector('#frmComment').value;
-        return data;
+        let myData = {
+            name: (this.$baseElement.querySelector('#frmName').value),
+            address:this.$baseElement.querySelector('#frmAddress').value,
+            eMailAddr:this.$baseElement.querySelector('#frmMailAddr').value,
+            comment:this.$baseElement.querySelector('#frmComment').value
+        }
+        return myData;
 }
 
-_setFrm = (data) => {
-    console.log("test");
-    if (data != null) {
-        let data = ['name' , 'address' , 'eMailAddr' ,  'comment'];
-    }
-        this.$baseElement.querySelector('#frmName').value          = data['name'];
-        this.$baseElement.querySelector('#frmAddress').value       = data['address'];
-        this.$baseElement.querySelector('#frmMailAddr').value     = data['eMailAddr'];
-        this.$baseElement.querySelector('#frmComment').value       = data['comment'];
+_setFrm = () => {
+        this.$baseElement.querySelector('#frmName').value           = '';
+        this.$baseElement.querySelector('#frmAddress').value        = '';
+        this.$baseElement.querySelector('#frmMailAddr').value       = '';
+        this.$baseElement.querySelector('#frmComment').value        = '';
 }
 
 containsData = (data) => {
@@ -81,20 +78,22 @@ eMailValid = (mail) => {
         let data = this._get();
         if (data != null) {
             let bvalid = true;
-            data.forEach(eachvalue => {             //Jedes Feld auf Inhalt prüfen
-                if(!this.containsData(data[eachvalue])) {
+                                                     //Jedes Feld auf Inhalt prüfen
+                if(!this.containsData(data.name)) {
                     bvalid = false;
                 }
-            });
+                if(!this.containsData(data.address)) {
+                    bvalid = false;
+                }
 
             if (bvalid) {                                           //Bei Input email prüfen
                 if (this.eMailValid(data["eMailAddr"])) {
                    return data;
                 } else {
-                    this._popupMessage("Fehler", "Gebe bitte Deine e-Mail Adresse ein.");
+                    chayns.dialog.alert("Fehler", "Gebe bitte Deine e-Mail Adresse ein.");
                 }
             } else {
-                this._popupMessage("Fehler", "Fülle bitte alle Felder aus.");
+                chayns.dialog.alert("Fehler", "Fülle bitte alle Felder aus.");
             }
         }
     }
@@ -111,7 +110,7 @@ eMailValid = (mail) => {
         var messageToSend = ('Anfrage Seite indizieren: \nName: ' + data["name"] + '\nAdresse: ' + data["address"] + '\neMail Adresse:' + data["eMailAddr"] + '\nKommentar: ' + data["comment"]);
                 chayns.intercom.sendMessageToPage({
                     text: messageToSend
-                }).then(function(data){            
+                }).then((data) => {            
                     if(data.status == 200){
                         this._setFrm();
                         chayns.dialog.alert(chayns.env.user.name + ', Deine Anfrage wurde gesendet. \nVielen Dank für die Nachfrage!');
@@ -119,15 +118,4 @@ eMailValid = (mail) => {
                 });
                 return true;
     }
-
-    _popupMessage = (heading, content) => {
-        chayns.dialog.alert(heading, content)
-            .then(function (data) { 
-        });
-    }
-
-
-
-
-
 }
