@@ -16,10 +16,7 @@ export default class resListForm {
                     </div>  
             </div>       `
             );
-
         element.addEventListener('click', () => {chayns.openUrlInBrowser('https://chayns.net/'+siteId); });
         return element;
-
     }
-
 }
