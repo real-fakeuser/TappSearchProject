@@ -1,4 +1,4 @@
-import frmAccess from './frmAccess';
+import frmAccess from './getUserInput';
 import checkInput from './chkInput';
 export default class frmLogic {
     constructor() {}

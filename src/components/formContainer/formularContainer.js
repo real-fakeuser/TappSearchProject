@@ -1,17 +1,15 @@
 import htmlToElement from 'html-to-element'
-
 export default class Formular {
     constructor() {}
 
     collapsedfrm = () =>{
 
-        let accordionForm = htmlToElement(`
+        let inputFRM = htmlToElement(`
                             <div class="accordion">
                                 <div class="accordion__head">Füge Deine eigene Site hinzu </div>
                                 <div class="accordion__body">
                                     <!--<div class="accordion__intro">Here is the accordion intro.</div>-->
                                     <div class="accordion__content">
-                                        
                                         <div class="Formular">
                                             <div class="Formularcontent">
                                                 <input type="text" class="input forminput" id="frmName" placeholder="Name">
@@ -25,9 +23,7 @@ export default class Formular {
                                             <div class="Formularcontent">
                                                     <input type="text" class="input forminput" id="frmComment" placeholder="Kommentar">
                                             </div>
-
-                                            <div style="text-align: center">
-                                                <button class="button" id="sendForm">Daten absenden</button>
+                                            <div id="submitButton">
                                             </div>
                                         </div>
                                     </div>
@@ -35,6 +31,6 @@ export default class Formular {
                                 </div>
                             </div>
                     `);
-        return accordionForm;
+        return inputFRM;
     }
 }
