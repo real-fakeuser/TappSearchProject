@@ -3,7 +3,6 @@ import searchBar from './components/searchbar/container';
 import accordionList from './components/accordionElements/accordionList';
 import showMoreBtn from './components/accordionElements/showMoreBtn';
 import formContainer from './components/formContainer/formContainer';
-import button from './components/formContainer/submitButton';
 
 
 const init = async () => {
@@ -17,7 +16,11 @@ const init = async () => {
 //###############
 
 //############### create wrapper
-      let objListWrapper = new accordionList();
+      /*let listBaseElement = document.querySelector('#resultList');
+      let listContainer = new listContainer(listBaseElement);*/
+
+
+     /* let objListWrapper = new accordionList();
       let objSearchBar = new searchBar();
       let objShowMore = new showMoreBtn();
       let listWrapper = document.querySelector('#resultList');
@@ -25,7 +28,7 @@ const init = async () => {
       document.querySelector('#showMore').appendChild(objShowMore.block(new searchEngine().enlargeList));   //adds the show more button and event listener
       let searchBox = document.querySelector('#searchbar');
       searchBox.appendChild(objSearchBar.searchBarBox(new searchEngine().keyUpSearch));                     //creates searchbar and key up event
-      new searchEngine().search('Tobit');                                                                   //Creates a search request
+      new searchEngine().search('Tobit');                                                                   //Creates a search request*/
 
 
 
