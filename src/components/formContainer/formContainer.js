@@ -78,11 +78,13 @@ eMailValid = (mail) => {
         let data = this._get();
         if (data != null) {
             let bvalid = true;
-            data.forEach(eachvalue => {             //Jedes Feld auf Inhalt prüfen
-                if(!this.containsData(data[eachvalue])) {
+                                                     //Jedes Feld auf Inhalt prüfen
+                if(!this.containsData(data.name)) {
                     bvalid = false;
                 }
-            });
+                if(!this.containsData(data.address)) {
+                    bvalid = false;
+                }
 
             if (bvalid) {                                           //Bei Input email prüfen
                 if (this.eMailValid(data["eMailAddr"])) {

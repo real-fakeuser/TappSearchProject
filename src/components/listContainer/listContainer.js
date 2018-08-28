@@ -11,6 +11,7 @@ export default class listcontainer {
         this.newListLength = 20;
         this.resultList = document.querySelector('#siteList');
         this.searchString;
+        this.search('Tobit');
 
     }
 
@@ -92,7 +93,6 @@ export default class listcontainer {
     search = (forceSearch) => {                     //führt eine durch den Benutzer indizierte Suche aus
         chayns.showWaitCursor();            //Wartecursor einblenden
         if (forceSearch != null) {
-            document.querySelector('#SiteSearch').value = forceSearch;
             this._updateSearchData(forceSearch);
         } else {
             chayns.hideWaitCursor();
