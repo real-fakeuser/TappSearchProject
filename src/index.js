@@ -2,17 +2,18 @@ import searchEngine from './components/listContainer/searchengine';
 import searchBar from './components/searchbar/container';
 import accordionList from './components/accordionElements/accordionList';
 import showMoreBtn from './components/accordionElements/showMoreBtn';
-import Formular from './components/formContainer/formularContainer';
+import formContainer from './components/formContainer/formContainer';
 import button from './components/formContainer/submitButton';
 
 
 const init = async () => {
     await chayns.ready;
 //############### Form
-      let frmContainer = document.querySelector('#addForm');
-      frmContainer.appendChild(new Formular().collapsedfrm());
-      let submitButton = document.querySelector('#submitButton');
-      submitButton.appendChild(new button().submitButton());
+      let frmBaseElement = document.querySelector('#addForm');
+      let frmContainer = new formContainer(frmBaseElement);
+     
+
+     
 //###############
 
 //############### create wrapper
